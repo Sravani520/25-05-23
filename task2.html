@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function check(){
+            var firstName=document.getElementById("firstname").value
+            var firstNameCheck=/^[a-zA-Z]+$/
+            console.log(firstName)
+            if(firstName==""||firstName.length<3)
+            {
+            alert("Please enter your name")
+            return false
+            }
+            if(!firstName.match(firstNameCheck)){
+                alert("Name must carry only alphabets")
+                return false
+            }
+
+
+            var emailid=document.getElementById("emailid").value
+            var emailidCheck=/^[a-z0-9.]+@[a-z0-9]+\.[a-z]{2,3}$/
+            console.log(emailid)
+            if(!emailid.match(emailidCheck)){
+                alert("Please Enter valid email")
+                return false
+            }
+
+
+            var password=document.getElementById("password").value
+            var PasswordCheck= /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+            if(!password.match(PasswordCheck)){
+                alert("Enter a strong password")
+                return false
+            }
+            var confirmPassword=document.getElementById("confirm").value
+            if(!password.match(confirmPassword)){
+                alert("Passwords do not match")
+                return false
+            }
+
+
+            var Male=document.getElementById("Male").checked
+            var Female=document.getElementById("Female").checked
+            if(Male==true){
+                gender="Male"
+            }
+            else if(Female==true){
+                gender="Female"
+            }
+            console.log(gender)
+
+
+            var state=document.getElementById("state")
+            var value = state.options[state.selectedIndex].value;
+            console.log(value)
+            return false
+        }
+    </script>
+</head>
+<body>
+    <div class="login">
+    <h1>Login</h1>
+    <form onsubmit="return check()" action="https://google.com">
+        <div class="input">
+            <!-- <label for="username">Username</label><br> -->
+            <input id="firstname" placeholder="User Name"/><br>
+        </div>
+        <div class="input">
+            <!-- <label for="email">EmailID</label><br> -->
+            <input id="emailid" placeholder="Email ID"/><br>
+        </div>
+        <div class="input">
+            <!-- <label for="password">Password</label><br> -->
+            <input type="password" id="password" placeholder="Password"/><br>
+        </div>
+        <div class="input">
+            <!-- <label for="confirm">Confirm Password</label><br> -->
+             <input type="password" id="confirm" placeholder="Re-enter Password"/><br>
+        </div>
+        <div class="radio">
+            <label for="gender">Gender:</label><br>
+            <input type="radio" id="Female" name="gender" required="required"/>Female
+            <input type="radio" id="Male" name="gender" required="required"/>Male
+            <input type="radio" id="Others" name="gender" required="required"/>Others<br>
+        </div> 
+        <div class="state">
+            <label for="state">State</label><br>
+            <select name="state" id="state" required placeholder="Choose state"><br>
+                <option value="" disabled selected>Choose state</option>
+                <option value="Andhra">Andhra</option>
+                <option value="Telanagana">Telangana</option>
+                <option value="TamilNadu">TamilNadu</option>
+            </select>
+        </div>
+            <button type="submit">Submit</button>
+        
+    </form>
+    </div>
+    </body>
+</html>
+<!-- name email password confirm password gender(radio) state(dropdown) -->
